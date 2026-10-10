@@ -1,6 +1,6 @@
 # 🎓 Máster Frontend - Lemoncode
 
-Este repositorio recopila las **prácticas, ejercicios y proyectos** realizados durante el **XIX Edición del Máster en Frontend Online de [Lemoncode](https://lemoncode.net/)**.  
+Este repositorio recopila las **prácticas, ejercicios y proyectos** realizados durante el **Máster en Frontend Online de [Lemoncode](https://lemoncode.net/)**.  
 
 El objetivo es documentar el progreso, aplicar las tecnologías vistas en el programa y crear un portfolio de proyectos frontend.
 
