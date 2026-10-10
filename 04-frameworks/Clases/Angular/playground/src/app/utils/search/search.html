@@ -1,0 +1,9 @@
+<p>{{ label() }}</p>
+
+<div class="container">
+  <!-- <input type="text" class="field" value="{{name}}" /> -->
+  <input type="text" [placeholder]="ph()" class="field" [value]="name" />
+  <div class="icons-container">
+    <div class="icon-search" (click)="changeName()"></div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<h2>Alta</h2>
+<div>
+  <form #addForm="ngForm">
+    <div>
+        <label>Id </label>
+        <!-- #id -> variable de template para que pueda registrar esas id -->
+        <input name="id" [(ngModel)]="newMember.id" required #id="ngModel"/>
+        @if(id.invalid) {
+          <div style="color: red;">El id es obligatorio</div>
+        }
+    </div>
+    <div>
+        <label>Name </label>
+        <input name="name" [(ngModel)]="newMember.login" required minlength="6" #name="ngModel" />
+        @if(name.invalid && name.touched) {
+          @if (name.errors!['required']) {
+            <div style="color: red;">El nombre es obligatorio</div>
+          }
+          @if (name.errors!['minlength']) {
+            <div style="color: red;">El nombre debe de tener {{ name.errors!['minlength'].requiredLength }} caracteres</div>
+          }
+        }
+    </div>
+    <div>
+        <label>Avatar </label>
+        <input name="avatar" (change)="handleFileInput($event)" type="file" accept="image/*"/>
+        <div>
+          <img [src]="newMember.avatar_url" width="50" >
+        </div>
+    </div>
+    <button [disabled]="addForm.invalid" (click)="add()">Añadir</button>
+  </form>
+</div>
+
+<h2>Listado</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Avatar</th>
+      <th>Id</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(member of members(); track member.id) {
+      <tr>
+        <td>
+          <img [src]="member.avatar_url" />
+        </td>
+        <td>
+          <!-- Solo leemos el resultado -->
+          <span>{{ member.id }}</span>
+        </td>
+        <td>
+          <span>{{ member.login }}</span>
+        </td>
+      </tr>
+    }
+
+  </tbody>
+</table>
